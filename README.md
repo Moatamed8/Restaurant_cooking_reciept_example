@@ -6,16 +6,17 @@ Restaurant Flutter application.
  *Support change app theme such appBar and others 
  *State Management (Provider) 
  *Local Data Storage
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 
+## Photos
+![Preview](/1.jpeg)
+![Preview](2.jpeg)
+![Preview](3.jpeg)
+![Preview](4.jpeg)
+![Preview](5.jpeg)
+![Preview](7.jpeg)
+![Preview](8.jpeg)
+![Preview](9.jpeg)
+![Preview](10.jpeg)
+![Preview](11.jpeg)
+![Preview](12.jpeg)
+![Preview](13.jpeg)
