@@ -1,4 +1,10 @@
 # my_meal
+  Tips to Run Application
+  After clone Project
+    1- open pubspec.yaml
+    2-run flutter pub get in terminal
+    3- flutter run
+
 
 Restaurant Flutter application.
  *Screens => Category Screen - Meal Screen - Meal details Screen -Favorite Screen -Filter Screen -Theme Screen 
