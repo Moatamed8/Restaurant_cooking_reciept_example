@@ -9,7 +9,7 @@ class CategoriesScreen extends StatelessWidget {
     return GridView(
       padding: EdgeInsets.all(8),
       //check for DUMMY_CATEGORIES catData will check in catagory and return it in CategoryItems that take catData.id, catData.title, catData.color
-      children: Provider.of<MealProvider>(context)
+      children: MealProvider.of(context)
           .availableCategory
           .map(
             (catData) => CategoryItem(catData.id, catData.color),

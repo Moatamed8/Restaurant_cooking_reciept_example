@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 class ThemeProvider with ChangeNotifier {
+
+  static ThemeProvider of(BuildContext context, {bool listen = false}) {
+    if (listen) return context.watch<ThemeProvider>();
+    return context.read<ThemeProvider>();
+  }
+
   var pr = Color(0xFF131a31);
 
   String themeText = "s";

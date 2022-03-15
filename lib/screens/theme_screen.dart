@@ -31,15 +31,15 @@ class ThemesScreen extends StatelessWidget {
         color: Theme.of(ctx).buttonColor,
       ),
       value: themeVal,
-      groupValue: Provider.of<ThemeProvider>(ctx, listen: true).tm,
-      onChanged: (newThemeVal) => Provider.of<ThemeProvider>(ctx, listen: false)
+      groupValue: ThemeProvider.of(ctx, listen: true).tm,
+      onChanged: (newThemeVal) => ThemeProvider.of(ctx, listen: false)
           .themeModeChange(newThemeVal),
       title: Text(txt),
     );
   }
 
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
     return Directionality(
       textDirection: lan.isEn ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(

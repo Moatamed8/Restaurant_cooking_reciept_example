@@ -24,10 +24,10 @@ class _FliterScreenState extends State<FliterScreen> {
       subtitle: Text(subTitle),
       value: value,
       onChanged: function,
-      activeColor: Provider.of<ThemeProvider>(context, listen: true)
+      activeColor: ThemeProvider.of(context, listen: true)
           .accentColor,
       inactiveTrackColor:
-          Provider.of<ThemeProvider>(context, listen: true).tm ==
+      ThemeProvider.of(context, listen: true).tm ==
                   ThemeMode.light
               ? null
               : Colors.black,
@@ -37,8 +37,8 @@ class _FliterScreenState extends State<FliterScreen> {
   @override
   Widget build(BuildContext context) {
     final Map<String, bool> currentFilter =
-        Provider.of<MealProvider>(context, listen: true).filters;
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+        MealProvider.of(context, listen: true).filters;
+    var lan = LanguageProvider.of(context, listen: true);
     return Directionality(
       textDirection: lan.isEn ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
@@ -70,7 +70,7 @@ class _FliterScreenState extends State<FliterScreen> {
                     setState(() {
                       currentFilter['gluten'] = newValue;
                     });
-                    Provider.of<MealProvider>(context, listen: false)
+                    MealProvider.of(context, listen: false)
                         .setFilters();
                   }),
                   buildSwitchListTile(
@@ -80,7 +80,7 @@ class _FliterScreenState extends State<FliterScreen> {
                     setState(() {
                       currentFilter['lactose'] = newValue;
                     });
-                    Provider.of<MealProvider>(context, listen: false)
+                    MealProvider.of(context, listen: false)
                         .setFilters();
                   }),
                   buildSwitchListTile(
@@ -90,7 +90,7 @@ class _FliterScreenState extends State<FliterScreen> {
                     setState(() {
                       currentFilter['vegan'] = newValue;
                     });
-                    Provider.of<MealProvider>(context, listen: false)
+                    MealProvider.of(context, listen: false)
                         .setFilters();
                   }),
                   buildSwitchListTile(
@@ -100,7 +100,7 @@ class _FliterScreenState extends State<FliterScreen> {
                     setState(() {
                       currentFilter['vegetarian'] = newValue;
                     });
-                    Provider.of<MealProvider>(context, listen: false)
+                    MealProvider.of(context, listen: false)
                         .setFilters();
                   }),
                 ],

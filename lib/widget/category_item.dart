@@ -18,7 +18,7 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
     return InkWell(
       onTap: () => _selectItem(context),
       splashColor: Theme.of(context).primaryColor,

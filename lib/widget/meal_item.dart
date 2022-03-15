@@ -24,7 +24,7 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
 
     return InkWell(
       onTap: () => selectMeal(context),
@@ -77,7 +77,7 @@ class MealItem extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(7),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

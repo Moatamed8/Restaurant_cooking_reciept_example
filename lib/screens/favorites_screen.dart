@@ -9,13 +9,13 @@ import '../widget/meal_item.dart';
 class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
     bool isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     var wd = MediaQuery.of(context).size.width;
 
     final List<Meal> _favoriteMeals =
-        Provider.of<MealProvider>(context, listen: true).favoriteMeals;
+        MealProvider.of(context, listen: true).favoriteMeals;
     if (_favoriteMeals.isEmpty) {
       return Center(
         child: Text(lan.getTexts('favorites_text')),

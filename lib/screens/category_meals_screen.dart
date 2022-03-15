@@ -20,7 +20,7 @@ class _CategoryMealState extends State<CategoryMealScreen> {
   @override
   void didChangeDependencies() {
     final List<Meal> _avaliableMeals =
-        Provider.of<MealProvider>(context).availableMeals;
+        MealProvider.of(context).availableMeals;
     //that routeArg for recieve data send while pushnamed
     final routeArg =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
@@ -40,7 +40,7 @@ class _CategoryMealState extends State<CategoryMealScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
     var wd = MediaQuery.of(context).size.width;
     bool isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;

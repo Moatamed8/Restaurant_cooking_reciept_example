@@ -2,10 +2,17 @@ import 'package:flutter/Material.dart';
 import 'package:my_meal/models/category.dart';
 import 'package:my_meal/models/meal.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
-import '../dummy_data.dart';
+import '../data/dummy_data.dart';
 
 class MealProvider with ChangeNotifier {
+
+  static MealProvider of(BuildContext context, {bool listen = false}) {
+    if (listen) return context.watch<MealProvider>();
+    return context.read<MealProvider>();
+  }
+
   List<String> prefsMealId = [];
   List<Meal> availableMeals = DUMMY_MEALS;
 

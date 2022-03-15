@@ -15,33 +15,27 @@ import 'screens/tabs_screen.dart';
 import 'screens/fliter.dart';
 import 'screens/theme_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  Widget homeScreen=prefs.getBool('watched')?? false ?TabsScreen():OnBoardingScreen();
-
-
+  Widget homeScreen =
+      prefs.getBool('watched') ?? false ? TabsScreen() : OnBoardingScreen();
 
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider<MealProvider>(
-        create: (ctx) => MealProvider(),
-      ),
-      ChangeNotifierProvider<ThemeProvider>(
-        create: (ctx) => ThemeProvider(),
-      ),
-      ChangeNotifierProvider<LanguageProvider>(
-        create: (ctx) => LanguageProvider(),
-      ),
+      ChangeNotifierProvider.value(value: MealProvider()),
+      ChangeNotifierProvider.value(value: ThemeProvider()),
+      ChangeNotifierProvider.value(value: LanguageProvider()),
     ],
     child: MyApp(homeScreen),
   ));
 }
 
 class MyApp extends StatelessWidget {
-
   final Widget mainScreen;
+
   MyApp(this.mainScreen);
+
   @override
   Widget build(BuildContext context) {
     var primaryColor = Provider.of<ThemeProvider>(context).primaryColor;
@@ -104,29 +98,6 @@ class MyApp extends StatelessWidget {
       },
 
       //    home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Meal App"),
-        brightness: Brightness.light,
-      ),
-      body: CategoriesScreen(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
     );
   }
 }

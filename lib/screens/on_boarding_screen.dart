@@ -18,7 +18,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     var primaryColor = Theme.of(context).primaryColor;
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
     return Scaffold(
       body: Stack(
         children: [
@@ -82,7 +82,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               Switch(
                                 value: lan.isEn,
                                 onChanged: (newValue) {
-                                  Provider.of<LanguageProvider>(context,
+                                  LanguageProvider.of(context,
                                           listen: false)
                                       .changeLan(newValue);
                                 },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_meal/Providers/language_provider.dart';
 import 'package:my_meal/Providers/meal_provider.dart';
-import 'package:my_meal/dummy_data.dart';
+import 'package:my_meal/data/dummy_data.dart';
 import 'package:provider/provider.dart';
 
 class MealDetailScreen extends StatelessWidget {
@@ -21,7 +21,7 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var lan = Provider.of<LanguageProvider>(context, listen: true);
+    var lan = LanguageProvider.of(context, listen: true);
 
     bool isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;
@@ -149,9 +149,9 @@ class MealDetailScreen extends StatelessWidget {
 
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Provider.of<MealProvider>(context, listen: false)
+          onPressed: () => MealProvider.of(context, listen: false)
               .toggleFilters(mealId),
-          child: Icon(Provider.of<MealProvider>(context, listen: true)
+          child: Icon(MealProvider.of(context, listen: true)
                   .isMealFavorite(mealId)
               ? Icons.star
               : Icons.star_border),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:provider/provider.dart';
 class LanguageProvider with ChangeNotifier {
+  static LanguageProvider of(BuildContext context, {bool listen = false}) {
+    if (listen) return context.watch<LanguageProvider>();
+    return context.read<LanguageProvider>();
+  }
   bool isEn = true;
 
 

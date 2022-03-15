@@ -17,10 +17,7 @@ class MainDrawer extends StatelessWidget {
         size: 26,
         color: Theme.of(context).textTheme.headline6.color,
       ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.headline6
-      ),
+      title: Text(title, style: Theme.of(context).textTheme.headline6),
       onTap: tapHandler,
     );
   }
@@ -69,13 +66,13 @@ class MainDrawer extends StatelessWidget {
               color: Theme.of(context).iconTheme.color,
             ),
             Container(
-              alignment:Alignment.centerRight,
-              padding: EdgeInsets.only(top: 20, right: 22),
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
               child: Text(lan.getTexts('drawer_switch_title'),
                   style: Theme.of(context).textTheme.headline6),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -84,19 +81,21 @@ class MainDrawer extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Switch(
-                    value: Provider.of<LanguageProvider>(context, listen: true)
-                        .isEn,
-                    onChanged: (newValue) {
-                      Provider.of<LanguageProvider>(context, listen: false)
-                          .changeLan(newValue);
-                      Navigator.of(context).pop();
-                    },
-                    inactiveTrackColor:
-                        Provider.of<ThemeProvider>(context, listen: true).tm ==
-                                ThemeMode.light
-                            ? Provider.of<ThemeProvider>(context, listen: false).primaryColor
-                            : Provider.of<ThemeProvider>(context, listen: false).accentColor
-                  ),
+                      value:
+                      LanguageProvider.of(context, listen: true)
+                              .isEn,
+                      onChanged: (newValue) {
+                        LanguageProvider.of(context, listen: false)
+                            .changeLan(newValue);
+                        Navigator.of(context).pop();
+                      },
+                      inactiveTrackColor:
+                          ThemeProvider.of(context, listen: true).tm ==
+                                  ThemeMode.light
+                              ? ThemeProvider.of(context, listen: false)
+                                  .primaryColor
+                              : ThemeProvider.of(context, listen: false)
+                                  .accentColor),
                   Text(lan.getTexts('drawer_switch_item2'),
                       style: Theme.of(context).textTheme.headline6),
                 ],
